@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -15,6 +16,7 @@ import javax.persistence.SequenceGenerator;
 
 import lombok.Data;
 
+
 @Data
 @Entity
 public class Lista {
@@ -23,13 +25,14 @@ public class Lista {
 	@GeneratedValue(generator="seq_lista")
 	private Integer id;
 	private String nome;
-	@JoinColumn
+	@JoinColumn 
 	@ManyToOne
 	private Placa placa;
 	
-	@ManyToMany(cascade={
-			CascadeType.ALL
-	})
+	@ManyToMany(
+			cascade=
+					CascadeType.ALL
+	)
 	@JoinTable(name="lista_cartao",
 		joinColumns = @JoinColumn(name="lista_id"),
 		inverseJoinColumns = @JoinColumn(name="carta_id")
