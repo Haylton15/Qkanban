@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,12 +38,12 @@ public class ListaController {
 	}
 	
 	@PostMapping("/lista/salvar")
-	public Lista salvar(Lista lista) {
+	public Lista salvar(@RequestBody Lista lista) {
 		return service.salvar(lista);
 	}
 	
 	@PutMapping("/lista/editar")
-	public Lista editar(Lista lista) {
+	public Lista editar(@RequestBody Lista lista) {
 		return service.salvar(lista);
 	}
 	
